@@ -10,7 +10,6 @@
 }
 .first_tab .goods_item .goods_img-wrap image {
   width: 70%;
-  padding: 1px;
 }
 .first_tab .goods_item .goods_info_wrap {
   flex: 3;
