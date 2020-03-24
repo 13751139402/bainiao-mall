@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-03-16 10:56:11
- * @LastEditTime: 2020-03-24 16:34:21
+ * @LastEditTime: 2020-03-24 22:36:32
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \ heima-mall\pages\auth\index.js
@@ -32,7 +32,7 @@ Page({
       // 2 获取小程序登录成功后的code
       const { code } = await login();
       // 3 发送请求 获取用户的token
-      const token= await request({
+      const token = await request({
         url: "/users/wxlogin", data: {
           encrypetdData,
           rawData,
@@ -43,7 +43,7 @@ Page({
         method: "post"
       })
       // 4 把token存入缓存中 同时跳回上一个页面
-      wx.setStorageSync("token", token||'这是个假token');
+      wx.setStorageSync("token", token || 'adwdoahsnodas5616');
       wx.navigateBack({
         delta: 1
       });

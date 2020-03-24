@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-03-16 10:56:11
- * @LastEditTime: 2020-03-24 16:50:30
+ * @LastEditTime: 2020-03-24 22:47:18
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \ heima-mall\pages\pay\index.js
@@ -15,12 +15,16 @@
  *     1 企业账号
  *     2 企业账号的小程序后台中 必须 给开发者 添加上白名单
  *       1 一个appid可以同时绑定多个开发者
- *       2 这些开发者就可以公用这个appid和它的开发权限
+ *       2 这些开发者就可以共用这个appid和它的开发权限
  * 3 支付按钮
  *   1 先判断缓存中有没有token
  *   2 没有 跳转授权页面 进行获取token
  *   3 有token
  *   4 创建订单 获取订单编号
+ *   5 已经完成了微信支付
+ *   6 手动删除缓存中 已经被选中了的商品
+ *   7 删除后的购物车数据 填充回缓存
+ *   8 再跳转页面
  */
 import {
   getSetting,
@@ -108,8 +112,8 @@ Page({
     }))
     const orderParams = { order_price, consignee_addr, goods };
     // 4 准备发送请求 创建订单 获取订单编号
-    const { order_number } = await request({ url: "/my/orders/create", method: "POST", data: orderParams, header });
-    console.log(order_number);
+    const order_number = await request({ url: "/my/orders/create", method: "POST", data: orderParams, header });
+    // 5 发起预支付页面
   }
 
 })
