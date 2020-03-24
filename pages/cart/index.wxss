@@ -1,20 +1,20 @@
 page {
   padding-bottom: 90rpx;
 }
-.revice_addres_row .address_btn {
+.revice_address_row .address_btn {
   padding: 20rpx;
 }
-.revice_addres_row .address_btn button {
+.revice_address_row .address_btn button {
   width: 60%;
 }
-.user_info_row {
+.revice_address_row .user_info_row {
   display: flex;
   padding: 20rpx;
 }
-.user_info_row .user_info {
+.revice_address_row .user_info_row .user_info {
   flex: 5;
 }
-.user_info_row .user_phone {
+.revice_address_row .user_info_row .user_phone {
   flex: 3;
   text-align: right;
 }
@@ -43,7 +43,7 @@ page {
   align-items: center;
 }
 .cart_content .cart_main .cart_item .cart_img_wrap image {
-  width: 80px;
+  width: 80%;
 }
 .cart_content .cart_main .cart_item .cart_info_wrap {
   flex: 4;
@@ -69,7 +69,7 @@ page {
 .cart_content .cart_main .cart_item .cart_info_wrap .goods_price_wrap .cart_num_tool {
   display: flex;
 }
-.cart_content .cart_main .cart_item .cart_info_wrap .goods_price_wrap .cart_num_tool .num_eidt {
+.cart_content .cart_main .cart_item .cart_info_wrap .goods_price_wrap .cart_num_tool .num_edit {
   width: 55rpx;
   height: 55rpx;
   display: flex;
@@ -92,16 +92,18 @@ page {
   height: 90rpx;
   background-color: #fff;
   display: flex;
+  border-top: 1rpx solid #ccc;
 }
 .footer_tool .all_chk_wrap {
   flex: 2;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 .footer_tool .total_price_wrap {
   flex: 5;
-  text-align: right;
   padding-right: 15rpx;
+  text-align: right;
 }
 .footer_tool .total_price_wrap .total_price .total_price_text {
   color: var(--themeColor);
