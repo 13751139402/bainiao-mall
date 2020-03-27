@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-03-17 10:37:01
- * @LastEditTime: 2020-03-20 16:05:29
+ * @LastEditTime: 2020-03-25 10:38:25
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \ heima-mall\request\index.js
@@ -11,6 +11,12 @@ let ajaxTimes = 0;
 
 
 export const request = (params) => {
+  // 判断 url中是否带有 /my/ 请求的是私有的路径 带上header token
+  let header = { ...params.header };
+  if (params.url.includes("/my/")) {
+    // 拼接header 带上token
+    header["Authorization"] = wx.getStorageSync("token");
+  }
   ajaxTimes++;
   // 显示加载中 效果
   wx.showLoading({
@@ -24,6 +30,7 @@ export const request = (params) => {
     console.log(baseUrl + params.url)
     wx.request({
       ...params,
+      header,
       url: baseUrl + params.url,
       success: (result) => {
         resolve(result.data.message);

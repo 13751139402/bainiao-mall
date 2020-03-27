@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-03-23 11:38:04
- * @LastEditTime: 2020-03-24 16:11:45
+ * @LastEditTime: 2020-03-25 10:09:18
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \ heima-mall\utils\async.Wx.js
@@ -110,3 +110,25 @@ export const login = () => {
     })
   })
 }
+
+/**
+ * @description: promise 形式的 小程序的微信支付
+ * @param {
+ *   pay 支付所必要的参数
+ * } 
+ * @return: 
+ */
+export const requestPayment = (pay) => {
+  return new Promise((resolve, reject) => {
+    wx.requestPayment({
+      ...pay,
+      success: (result) => {
+        resolve(result);
+      },
+      fail: (err) => {
+        reject(err)
+      }
+    });
+  })
+}
+

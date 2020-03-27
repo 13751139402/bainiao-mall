@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2020-03-16 10:56:11
+ * @LastEditTime: 2020-03-27 16:58:19
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \ heima-mall\pages\feedback\index.js
+ */
 // pages/feedback/index.js
 Page({
 
@@ -5,62 +13,32 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    tabs: [{
+      id: 0,
+      value: "体验问题",
+      isActive: true
+    },
+    {
+      id: 1,
+      value: "商品,商家投诉",
+      isActive: false
+    },
+    ],
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  // 标签点击事件，从子组件传递过来
+  handleTabsItemChange(e) {
+    // 1 获取被点击的标签索引
+    const {
+      index
+    } = e.detail;
+    // 2 修改原数组
+    let {
+      tabs
+    } = this.data;
+    tabs.forEach((v, i) => i === index ? v.isActive = true : v.isActive = false);
+    // 3 赋值到data中
+    this.setData({
+      tabs
+    })
   }
 })
