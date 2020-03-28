@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-03-16 10:56:11
- * @LastEditTime: 2020-03-20 16:00:56
+ * @LastEditTime: 2020-03-28 10:40:49
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \ heima-mall\pages\goods_list\index.js
@@ -60,7 +60,8 @@ Page({
   // 总页数
   totalPages: 1,
   onLoad: function (options) {
-    this.QueryParams.cid = options.cid;
+    this.QueryParams.cid = options.cid||"";
+    this.QueryParams.query = options.query||"";
     this.getGoodsList();
   },
 
